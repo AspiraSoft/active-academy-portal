@@ -8,6 +8,7 @@ import com.bytexcite.khaapa.auth.AuthenticationListener;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -25,7 +26,11 @@ public class DataListener implements AuthenticationListener, ValueEventListener 
 
     public DataListener(Activity activity) {
         FirebaseDatabase cloudDatabase = FirebaseDatabase.getInstance();
-        cloudDatabase.setPersistenceEnabled(true);
+        try {
+            cloudDatabase.setPersistenceEnabled(true);
+        } catch (DatabaseException ex) {
+            ex.printStackTrace();
+        }
 
         this.mAuth = new AuthManager(activity);
         this.mAuth.setAuthenticationListener(this);

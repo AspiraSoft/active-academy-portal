@@ -1,17 +1,22 @@
 package com.bytexcite.khaapa;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bytexcite.khaapa.db.DataListener;
 import com.bytexcite.khaapa.db.LocalDatabase;
 import com.bytexcite.khaapa.db.OnDataSynchronizedListener;
 import com.bytexcite.khaapa.models.Item;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +60,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         // Register data listener to update items in realtime
         DataListener dataListener = new DataListener(this);
         dataListener.register(this);
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+        StorageReference specialToday = storageRef.child("special.jpg");
+
+        final long ONE_MEGABYTE = 512 * 512;
+        specialToday.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                ImageView view = (ImageView) findViewById(R.id.specialItemImage);
+                view.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
+            }
+        });
     }
 
     @Override
