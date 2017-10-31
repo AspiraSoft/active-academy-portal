@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "554209381482",
+    "firebase_url": "https://khaapa-78149.firebaseio.com",
+    "project_id": "khaapa-78149",
+    "storage_bucket": "khaapa-78149.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554209381482:android:fe8251ce249c58e3",
+        "android_client_info": {
+          "package_name": "com.bytexcite.khaapa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554209381482-80kgoeen6rtrbdaergckbegj6ddgubkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLcOxB4G91x4spXWAFMBdoJyDc0XZdhwc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
