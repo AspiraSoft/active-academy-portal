@@ -25,29 +25,12 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <LinearLayout
+        <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:orientation="vertical"
-            android:weightSum="5">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:scaleType="centerInside"
-                android:src="@drawable/bx_logo" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/app_version"
-                android:textColor="@android:color/white" />
-
-        </LinearLayout>
-
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo" />
 
     </LinearLayout>
 

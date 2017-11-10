@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#589</color>
-    <color name="colorPrimaryDark">#045</color>
-    <color name="colorAccent">#5F73D7</color>
+    <color name="colorPrimary">#E9B837</color>
+    <color name="colorPrimaryDark">#C29723</color>
+    <color name="colorAccent">#C32E35</color>
 
     <color name="semiWhite">#8FFF</color>
     <color name="semiGray">#8888</color>
-    <color name="semiBlack">#8000</color>
+    <color name="semiBlack">#AA001116</color>
 </resources>

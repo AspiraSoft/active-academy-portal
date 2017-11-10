@@ -57,22 +57,7 @@ public class DataListener implements AuthenticationListener, ValueEventListener 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
         try {
-            HashMap<String, HashMap> items = (HashMap<String, HashMap>) dataSnapshot.getValue();
-            try {
-                localDb.syncFoods(items.get("food"));
-            } catch (Exception ignored) {
-
-            }
-            try {
-                localDb.syncDrinks(items.get("drinks"));
-            } catch (Exception ignored) {
-
-            }
-            try {
-                localDb.syncOtherItems(items.get("others"));
-            } catch (Exception ignored) {
-
-            }
+            localDb.sync((HashMap<String, HashMap<String, Long>>) dataSnapshot.getValue());
             onDataSynchronizedListener.onDataSynchronized();
         } catch (Exception ignored) {
 
