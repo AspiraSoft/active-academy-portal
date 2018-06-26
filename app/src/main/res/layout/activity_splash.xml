@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="#FFF"
     android:orientation="vertical"
     android:weightSum="3"
-    tools:context=".SplashScreen">
+    tools:context="org.activeacademy.portal.SplashScreen">
 
     <Space
         android:layout_width="match_parent"

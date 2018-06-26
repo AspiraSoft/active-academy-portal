@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/bg"
         android:orientation="vertical"
-        tools:context="com.bytexcite.khaapa.HomeActivity">
+        tools:context="com.activeacademy.portal.org.activeacademy.portal.HomeActivity">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -92,7 +92,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_gradient" />
 
-            <com.bytexcite.khaapa.view.CustomTextView
+            <org.activeacademy.portal.view.CustomTextView
                 android:id="@+id/noNotifications"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

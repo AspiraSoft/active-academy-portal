@@ -1,4 +1,4 @@
-package com.bytexcite.khaapa.models;
+package org.activeacademy.portal.models;
 
 
 public class Item {

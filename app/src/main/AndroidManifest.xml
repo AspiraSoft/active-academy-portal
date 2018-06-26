@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.bytexcite.khaapa">
+    package="org.activeacademy.portal">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -10,29 +10,35 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
-        <activity android:name=".SplashScreen">
+
+        <activity android:name="org.activeacademy.portal.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".HomeActivity"
+            android:name="org.activeacademy.portal.LoginActivity"
             android:screenOrientation="portrait" />
+
         <activity
-            android:name=".FeedbackActivity"
+            android:name="org.activeacademy.portal.HomeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="org.activeacademy.portal.FeedbackActivity"
             android:screenOrientation="portrait" />
 
         <!-- This is required if you want to do any message handling beyond receiving notifications
          on apps in the background. -->
-        <service android:name=".utils.MessagingService">
+        <service android:name="org.activeacademy.portal.utils.MessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="org.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 

@@ -1,4 +1,4 @@
-package com.bytexcite.khaapa.db;
+package org.activeacademy.portal.db;
 
 public interface OnDataSynchronizedListener {
 

@@ -1,4 +1,4 @@
-package com.bytexcite.khaapa.auth;
+package org.activeacademy.portal.auth;
 
 import com.google.firebase.auth.FirebaseUser;
 

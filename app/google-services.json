@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "554209381482",
-    "firebase_url": "https://khaapa-78149.firebaseio.com",
-    "project_id": "khaapa-78149",
-    "storage_bucket": "khaapa-78149.appspot.com"
+    "project_number": "939767975766",
+    "firebase_url": "https://active-academy.firebaseio.com",
+    "project_id": "active-academy",
+    "storage_bucket": "active-academy.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:554209381482:android:fe8251ce249c58e3",
+        "mobilesdk_app_id": "1:939767975766:android:26699e92eeeb73b8",
         "android_client_info": {
-          "package_name": "com.bytexcite.khaapa"
+          "package_name": "org.activeacademy.portal"
         }
       },
       "oauth_client": [
         {
-          "client_id": "554209381482-80kgoeen6rtrbdaergckbegj6ddgubkp.apps.googleusercontent.com",
+          "client_id": "939767975766-hmrfhdu1hucohdahskghqr9hdimu7a5l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBLcOxB4G91x4spXWAFMBdoJyDc0XZdhwc"
+          "current_key": "AIzaSyCznTxAzpH4cCmd3JqOwRYtA6fULy9jvIw"
         }
       ],
       "services": {

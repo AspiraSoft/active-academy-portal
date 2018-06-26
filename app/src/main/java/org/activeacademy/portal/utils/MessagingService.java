@@ -1,4 +1,4 @@
-package com.bytexcite.khaapa.utils;
+package org.activeacademy.portal.utils;
 
 import android.app.NotificationManager;
 import android.content.Context;
@@ -8,15 +8,16 @@ import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import com.bytexcite.khaapa.R;
-import com.bytexcite.khaapa.db.NotificationStorage;
-import com.bytexcite.khaapa.db.OnNotificationReceivedListener;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import org.activeacademy.portal.R;
+import org.activeacademy.portal.db.NotificationStorage;
+import org.activeacademy.portal.db.OnNotificationReceivedListener;
+
 public class MessagingService extends FirebaseMessagingService {
 
-    private static final String TAG = "KHAAPA";
+    private static final String TAG = "ACTIVEPORTAL";
     private static int notificationId = 0;
     private final NotificationCompat.Builder nBuilder;
 
@@ -27,19 +28,21 @@ public class MessagingService extends FirebaseMessagingService {
     }
 
     private void generateNotification(RemoteMessage.Notification notification) {
-        nBuilder.setSmallIcon(R.mipmap.ic_launcher_round);
+        nBuilder.setSmallIcon(R.mipmap.ic_launcher);
         nBuilder.setContentTitle(notification.getTitle());
         nBuilder.setContentText(notification.getBody());
         nBuilder.setLights(Color.GREEN, 100, 100);
         nBuilder.setVibrate(new long[]{100, 50, 50, 100, 5000});
 
         NotificationManager notifier = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            if (notifier.areNotificationsEnabled()) {
+        if (notifier != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                if (notifier.areNotificationsEnabled()) {
+                    notifier.notify(notificationId++, nBuilder.build());
+                }
+            } else {
                 notifier.notify(notificationId++, nBuilder.build());
             }
-        } else {
-            notifier.notify(notificationId++, nBuilder.build());
         }
     }
 

@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">e-Khokha</string>
+    <string name="app_name">Active Academy Portal</string>
     <string name="drawer_open">Open drawer</string>
     <string name="drawer_close">Close drawer</string>
-    <string name="tagline">Bhook Ka Solution</string>
-    <string name="about"></string>
+    <string name="hintUsername">Enter username</string>
+    <string name="hintPassword">Enter password</string>
+    <string name="labelRememberUser">Stay signed in</string>
+    <string name="labelSignIn">Sign In</string>
 </resources>

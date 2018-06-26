@@ -22,7 +22,7 @@
         android:layout_height="1dp"
         android:background="@drawable/bg_gradient" />
 
-    <com.bytexcite.khaapa.view.CustomTextView
+    <org.activeacademy.portal.view.CustomTextView
         android:id="@+id/body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

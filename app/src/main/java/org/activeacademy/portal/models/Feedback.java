@@ -1,4 +1,4 @@
-package com.bytexcite.khaapa.models;
+package org.activeacademy.portal.models;
 
 import android.app.Activity;
 

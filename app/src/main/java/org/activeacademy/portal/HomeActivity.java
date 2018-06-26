@@ -1,4 +1,4 @@
-package com.bytexcite.khaapa;
+package org.activeacademy.portal;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -22,25 +22,27 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bytexcite.khaapa.db.DataListener;
-import com.bytexcite.khaapa.db.LocalDatabase;
-import com.bytexcite.khaapa.db.NotificationStorage;
-import com.bytexcite.khaapa.db.OnDataSynchronizedListener;
-import com.bytexcite.khaapa.db.OnNotificationReceivedListener;
-import com.bytexcite.khaapa.models.Item;
-import com.bytexcite.khaapa.utils.MessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
+import org.activeacademy.portal.db.DataListener;
+import org.activeacademy.portal.db.LocalDatabase;
+import org.activeacademy.portal.db.NotificationStorage;
+import org.activeacademy.portal.db.OnDataSynchronizedListener;
+import org.activeacademy.portal.db.OnNotificationReceivedListener;
+import org.activeacademy.portal.models.Item;
+import org.activeacademy.portal.utils.MessagingService;
+
 import java.util.List;
 
-public class HomeActivity extends ActionBarActivity implements
+public class HomeActivity extends AppCompatActivity implements
         OnDataSynchronizedListener, OnNotificationReceivedListener {
 
     int[] sampleImages = {
             R.drawable.carousel_0,
             R.drawable.carousel_1,
+            R.drawable.carousel_2,
             R.drawable.carousel_3,
             R.drawable.carousel_4,
             R.drawable.carousel_5,

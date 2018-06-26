@@ -1,4 +1,4 @@
-package com.bytexcite.khaapa.view;
+package org.activeacademy.portal.view;
 
 import android.content.Context;
 import android.graphics.Typeface;

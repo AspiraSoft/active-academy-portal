@@ -1,11 +1,11 @@
-package com.bytexcite.khaapa;
+package org.activeacademy.portal;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.bytexcite.khaapa.utils.MessagingService;
+import org.activeacademy.portal.utils.MessagingService;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,7 +31,7 @@ public class SplashScreen extends AppCompatActivity {
      * Default constructor.
      */
     public SplashScreen() {
-        startActivityTask = new StartActivityTask(HomeActivity.class);
+        startActivityTask = new StartActivityTask(LoginActivity.class);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.bytexcite.khaapa.auth;
+package org.activeacademy.portal.auth;
 
 
 import android.app.Activity;
@@ -49,10 +49,8 @@ public class AuthManager implements Runnable {
                             }
                         }
                     });
-        } else {
-            if (listener != null) {
-                listener.onSignInSuccess(currentUser);
-            }
+        } else if (listener != null) {
+            listener.onSignInSuccess(currentUser);
         }
     }
 

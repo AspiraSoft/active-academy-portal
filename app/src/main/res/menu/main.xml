@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/notifications"
-        android:icon="@drawable/ic_notification"
+        android:icon="@drawable/ic_feedback"
         android:title="Notice Board"
         app:actionLayout="@layout/notification_layout"
         app:showAsAction="always" />

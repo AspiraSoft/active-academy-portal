@@ -1,6 +1,6 @@
-package com.bytexcite.khaapa.db;
+package org.activeacademy.portal.db;
 
-import com.bytexcite.khaapa.models.Item;
+import org.activeacademy.portal.models.Item;
 
 import java.util.ArrayList;
 import java.util.HashMap;

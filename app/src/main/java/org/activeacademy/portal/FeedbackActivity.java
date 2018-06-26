@@ -1,4 +1,4 @@
-package com.bytexcite.khaapa;
+package org.activeacademy.portal;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,9 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
-import com.bytexcite.khaapa.models.Feedback;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import org.activeacademy.portal.models.Feedback;
 
 public class FeedbackActivity extends AppCompatActivity {
 

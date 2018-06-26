@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context="com.bytexcite.khaapa.FeedbackActivity">
+    tools:context="com.activeacademy.portal.org.activeacademy.portal.FeedbackActivity">
 
     <LinearLayout
         android:id="@+id/container"
@@ -16,7 +16,7 @@
         android:layout_margin="10dp"
         android:orientation="vertical">
 
-        <com.bytexcite.khaapa.view.CustomTextView
+        <org.activeacademy.portal.view.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SEECS Email"
@@ -35,7 +35,7 @@
             android:paddingRight="10dp"
             android:paddingTop="2dp" />
 
-        <com.bytexcite.khaapa.view.CustomTextView
+        <org.activeacademy.portal.view.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="45dp" />
 
-        <com.bytexcite.khaapa.view.CustomTextView
+        <org.activeacademy.portal.view.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -74,7 +74,7 @@
         android:paddingRight="10dp"
         android:paddingTop="10dp" />
 
-    <com.bytexcite.khaapa.view.CustomButton
+    <org.activeacademy.portal.view.CustomButton
         android:id="@+id/submit"
         android:layout_width="100dp"
         android:layout_height="40dp"

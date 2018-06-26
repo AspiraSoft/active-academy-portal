@@ -1,10 +1,10 @@
-package com.bytexcite.khaapa.db;
+package org.activeacademy.portal.db;
 
 
 import android.app.Activity;
 
-import com.bytexcite.khaapa.auth.AuthManager;
-import com.bytexcite.khaapa.auth.AuthenticationListener;
+import org.activeacademy.portal.auth.AuthManager;
+import org.activeacademy.portal.auth.AuthenticationListener;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
