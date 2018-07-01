@@ -10,12 +10,15 @@
     <string name="labelRememberUser">Remember password</string>
     <string name="labelSignIn">Sign In</string>
 
-    <string name="placeholder_name">First M. Last</string>
+    <string name="placeholder_name">J. Smith</string>
+    <string name="placeholder_phone">(206) 782–8410</string>
+    <string name="placeholder_email">jsmith@example.com</string>
+
     <string name="placeholder_position">Instructor</string>
-    <string name="placeholder_email">email@example.com</string>
-    <string name="placeholder_join_date">25–06–2018</string>
-    <string name="placeholder_type">Student-Based</string>
-    <string name="placeholder_subject">Computer</string>
-    <string name="placeholder_salary">PKR 5000/-</string>
+    <string name="placeholder_join_date">since 25–06–2018</string>
+    <string name="placeholder_salary">at PKR 5000/-</string>
+    <string name="label_salary_details">Details &gt;</string>
+    <string name="placeholder_password">******</string>
+    <string name="label_change_password">(Edit)</string>
 
 </resources>

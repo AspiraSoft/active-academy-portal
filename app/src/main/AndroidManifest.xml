@@ -27,7 +27,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="org.activeacademy.portal.HomeActivity"
+            android:name="org.activeacademy.portal.DashboardActivity"
             android:screenOrientation="portrait" />
 
     </application>

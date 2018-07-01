@@ -10,9 +10,9 @@ import org.activeacademy.portal.models.RemoteObject;
  *          created on 01/07/2018 5:52 PM
  */
 
-public interface OnRemoteObjectReceivedListener {
+public interface OnRemoteObjectReceivedListener<T extends RemoteObject> {
 
-    void onReceiveSuccess(@NonNull RemoteObject object);
+    void onReceiveSuccess(@NonNull T t);
 
     void onReceiveError();
 

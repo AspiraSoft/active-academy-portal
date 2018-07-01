@@ -11,35 +11,29 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.activeacademy.portal.auth.LoginManager;
-import org.activeacademy.portal.auth.OnLoginCompleteListener;
 import org.activeacademy.portal.models.RemoteObject;
 import org.activeacademy.portal.utils.OnRemoteObjectReceivedListener;
 
-public class RemoteDatabase implements OnLoginCompleteListener {
+public class RemoteDatabase {
+
+    private static final RemoteDatabase ourInstance = new RemoteDatabase();
 
     private final FirebaseDatabase mDatabase;
+    private final LoginManager mLoginManager;
 
-    private boolean isAuthenticated;
-
-    public RemoteDatabase() {
+    private RemoteDatabase() {
         this.mDatabase = FirebaseDatabase.getInstance();
-        this.isAuthenticated = false;
+        this.mLoginManager = LoginManager.getInstance();
     }
 
-    @Override
-    public void onUserLoggedIn(FirebaseUser user) {
-        isAuthenticated = true;
-    }
-
-    @Override
-    public void onLoginFailure() {
-        isAuthenticated = false;
+    public static RemoteDatabase getInstance() {
+        return ourInstance;
     }
 
     public void getRemoteObject(@NonNull final Class<? extends RemoteObject> type,
                                 @NonNull final OnRemoteObjectReceivedListener listener) {
-        FirebaseUser currentUser = LoginManager.getInstance().getCurrentUser();
-        if (isAuthenticated && currentUser != null) {
+        FirebaseUser currentUser = mLoginManager.getCurrentUser();
+        if (mLoginManager.isUserSignedIn() && currentUser != null) {
             DatabaseReference reference = mDatabase.getReference("users/" + currentUser.getUid());
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -47,7 +41,7 @@ public class RemoteDatabase implements OnLoginCompleteListener {
                     try {
                         RemoteObject object = dataSnapshot.getValue(type);
                         if (object != null) {
-                            listener.onReceiveSuccess(object);
+                            listener.onReceiveSuccess(type.cast(object));
                         } else {
                             listener.onReceiveError();
                         }
