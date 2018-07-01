@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import org.activeacademy.portal.utils.MessagingService;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -41,10 +39,6 @@ public class SplashScreen extends AppCompatActivity {
 
         Timer timer = new Timer();
         timer.schedule(startActivityTask, delay);
-
-        Intent i = new Intent(this, MessagingService.class);
-        startService(i);
-
     }
 
     @Override
