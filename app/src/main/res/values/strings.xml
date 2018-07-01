@@ -7,7 +7,7 @@
     <string name="hintEmail">Enter email</string>
     <string name="hintPassword">Enter password</string>
 
-    <string name="labelRememberUser">Stay signed in</string>
+    <string name="labelRememberUser">Remember password</string>
     <string name="labelSignIn">Sign In</string>
 
     <string name="placeholder_name">First M. Last</string>

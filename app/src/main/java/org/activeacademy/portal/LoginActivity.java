@@ -3,6 +3,7 @@ package org.activeacademy.portal;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.activeacademy.portal.auth.LoginManager;
 import org.activeacademy.portal.auth.OnLoginCompleteListener;
+import org.activeacademy.portal.db.LocalDatabase;
 import org.activeacademy.portal.view.CustomButton;
 
 public class LoginActivity extends AppCompatActivity implements
@@ -18,9 +20,10 @@ public class LoginActivity extends AppCompatActivity implements
 
     private LoginManager mLoginManager;
 
-    private CustomButton mLoginButton;
     private EditText mEmailField;
     private EditText mPasswordField;
+    private AppCompatCheckBox mRememberField;
+    private CustomButton mLoginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,20 +33,23 @@ public class LoginActivity extends AppCompatActivity implements
         // Get UI references
         mEmailField = findViewById(R.id.emailField);
         mPasswordField = findViewById(R.id.passwordField);
+        mRememberField = findViewById(R.id.rememberUser);
+
+        // Restore any saved credentials
+        String[] savedCredentials = LocalDatabase.getInstance().getSavedCredentials();
+        if (savedCredentials != null && savedCredentials.length >= 2) {
+            mEmailField.setText(savedCredentials[0]);
+            mPasswordField.setText(savedCredentials[1]);
+            mRememberField.setChecked(true);
+        } else {
+            mRememberField.setChecked(false);
+        }
 
         // Set event listeners
         mLoginButton = findViewById(R.id.loginButton);
         mLoginButton.setOnClickListener(this);
 
         mLoginManager = LoginManager.getInstance();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        mLoginButton.setEnabled(false);
-        mLoginManager.signInAnonymously(this);
     }
 
     private boolean isEmailValid(String email) {
@@ -69,6 +75,13 @@ public class LoginActivity extends AppCompatActivity implements
                     return;
                 }
 
+                // Save credentials if user said so
+                if (mRememberField.isChecked()) {
+                    LocalDatabase.getInstance().saveCredentials(email, password);
+                } else {
+                    LocalDatabase.getInstance().removeSavedCredentials();
+                }
+
                 // Disable sign in button
                 mLoginButton.setEnabled(false);
 
@@ -77,11 +90,6 @@ public class LoginActivity extends AppCompatActivity implements
                 mLoginManager.signInWithCredentials(email, password, this);
                 break;
         }
-    }
-
-    @Override
-    public void onAnonymousLoggedIn() {
-        mLoginButton.setEnabled(true);
     }
 
     @Override

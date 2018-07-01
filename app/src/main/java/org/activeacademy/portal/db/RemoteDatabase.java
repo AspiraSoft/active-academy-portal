@@ -19,37 +19,27 @@ public class RemoteDatabase implements OnLoginCompleteListener {
 
     private final FirebaseDatabase mDatabase;
 
-    private boolean hasAccess;
     private boolean isAuthenticated;
 
     public RemoteDatabase() {
         this.mDatabase = FirebaseDatabase.getInstance();
-        this.hasAccess = false;
         this.isAuthenticated = false;
     }
 
     @Override
-    public void onAnonymousLoggedIn() {
-        hasAccess = true;
-        isAuthenticated = false;
-    }
-
-    @Override
     public void onUserLoggedIn(FirebaseUser user) {
-        hasAccess = true;
         isAuthenticated = true;
     }
 
     @Override
     public void onLoginFailure() {
-        hasAccess = false;
         isAuthenticated = false;
     }
 
     public void getRemoteObject(@NonNull final Class<? extends RemoteObject> type,
                                 @NonNull final OnRemoteObjectReceivedListener listener) {
         FirebaseUser currentUser = LoginManager.getInstance().getCurrentUser();
-        if (hasAccess && isAuthenticated && currentUser != null) {
+        if (isAuthenticated && currentUser != null) {
             DatabaseReference reference = mDatabase.getReference("users/" + currentUser.getUid());
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
