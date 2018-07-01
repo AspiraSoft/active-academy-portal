@@ -6,4 +6,11 @@
     <string name="hintPassword">Enter password</string>
     <string name="labelRememberUser">Stay signed in</string>
     <string name="labelSignIn">Sign In</string>
+    <string name="placeholder_name">First M. Last</string>
+    <string name="placeholder_position">Instructor</string>
+    <string name="placeholder_email">email@example.com</string>
+    <string name="placeholder_join_date">25-06-2018</string>
+    <string name="placeholder_type">Student-Based</string>
+    <string name="placeholder_subject">Computer</string>
+    <string name="placeholder_salary">PKR 5000/-</string>
 </resources>
