@@ -30,10 +30,6 @@
             android:name="org.activeacademy.portal.HomeActivity"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name="org.activeacademy.portal.FeedbackActivity"
-            android:screenOrientation="portrait" />
-
         <!-- This is required if you want to do any message handling beyond receiving notifications
          on apps in the background. -->
         <service android:name="org.activeacademy.portal.utils.MessagingService">
