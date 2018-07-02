@@ -13,7 +13,7 @@ import java.util.Date;
  * @version 1.0.0
  * @since 1.0.0 01/07/2018 1:48 PM
  */
-public class Lecture extends RemoteObject {
+public class Lecture {
 
     private transient final SimpleDateFormat inputTimeFormat = new SimpleDateFormat("H:mm");
     private transient final SimpleDateFormat outputTimeFormat = new SimpleDateFormat("K:mm a");

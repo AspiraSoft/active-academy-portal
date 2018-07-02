@@ -11,7 +11,7 @@ import java.util.List;
  * @version 1.0.0
  * @since 01/07/2018 1:42 PM
  */
-public class Course extends RemoteObject {
+public class Course {
 
     private Long id;
     private String name;

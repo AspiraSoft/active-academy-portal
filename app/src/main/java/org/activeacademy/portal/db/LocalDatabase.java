@@ -16,12 +16,12 @@ public class LocalDatabase {
 
     private final SharedPreferences mPrefs;
 
-    public static LocalDatabase getInstance() {
-        return ourInstance;
-    }
-
     private LocalDatabase() {
         mPrefs = AcademyApplication.getSharedPreferences();
+    }
+
+    public static LocalDatabase getInstance() {
+        return ourInstance;
     }
 
     public void saveCredentials(final String email, final String password) {

@@ -1,7 +1,7 @@
 package org.activeacademy.portal.models;
 
 
-public class Instructor extends RemoteObject {
+public class Instructor {
 
     private String name;
     private String phone;

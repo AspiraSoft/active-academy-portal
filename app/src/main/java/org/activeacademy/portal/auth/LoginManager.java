@@ -10,6 +10,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import org.activeacademy.portal.db.RemoteDatabase;
+import org.activeacademy.portal.errors.AuthenticationException;
+import org.activeacademy.portal.models.Instructor;
+import org.activeacademy.portal.utils.ResponseHandler;
+
 public class LoginManager {
 
     private static LoginManager ourInstance;
@@ -73,6 +78,16 @@ public class LoginManager {
                 listener.onUserLoggedIn(updatedUser);
             }
         }
+    }
+
+    public void getCurrentUserInfo(ResponseHandler<Instructor> responseHandler) {
+        if (!isUserSignedIn()) {
+            responseHandler.onReceiveError(new AuthenticationException());
+        }
+
+        RemoteDatabase mRemoteDb = RemoteDatabase.getInstance();
+        mRemoteDb.getAsync("users/" + currentUser.getUid(),
+                Instructor.class, responseHandler);
     }
 
 }
