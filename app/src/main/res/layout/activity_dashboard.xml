@@ -30,7 +30,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/panel_outlined" />
+            android:background="@drawable/panel_primary_bold" />
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -273,7 +273,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingBottom="20dp"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
                 <TextView
                     android:id="@+id/schedule_loading"
@@ -288,6 +288,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:gravity="end"
+                    android:onClick="seeAllCourses"
+                    android:padding="5dp"
                     android:text="@string/label_timetable_details"
                     android:textAllCaps="true"
                     android:textColor="@color/colorAccent"

@@ -35,7 +35,7 @@ public class TimetableAdapter extends ArrayAdapter<TimetableEntry> {
             mView = new TimetableEntryView();
 
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = vi.inflate(R.layout.list_item_lecture_single, parent, false);
+            convertView = vi.inflate(R.layout.list_item_timetable, parent, false);
 
             mView.setCourseView((TextView) convertView.findViewById(R.id.courseName));
             mView.setGradeView((TextView) convertView.findViewById(R.id.gradeName));

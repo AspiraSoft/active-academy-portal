@@ -39,6 +39,8 @@ public class UserInfoViewController implements ResponseHandler<Instructor> {
                 activity.findViewById(R.id.dashboard_row2),
                 activity.findViewById(R.id.dashboard_row3)
         };
+
+        setLoading(true);
     }
 
     public void setOnRefreshComplete(RefreshListener onRefreshComplete) {
@@ -59,7 +61,7 @@ public class UserInfoViewController implements ResponseHandler<Instructor> {
         }
     }
 
-    public void setLoading(boolean loading) {
+    private void setLoading(boolean loading) {
         setContentVisible(!loading);
         setLoaderVisible(loading);
         setErrorVisible(false);

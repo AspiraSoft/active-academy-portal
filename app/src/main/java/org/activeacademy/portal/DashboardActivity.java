@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseUser;
 
@@ -83,7 +84,7 @@ public class DashboardActivity extends AppCompatActivity implements RefreshListe
 
             @Override
             public void onFinish() {
-                refreshQuiet();
+                refresh();
             }
         }.start();
         mRefreshIcon.setVisible(true);
@@ -109,20 +110,19 @@ public class DashboardActivity extends AppCompatActivity implements RefreshListe
         switch (item.getItemId()) {
             case R.id.refresh: {
                 mRefreshIcon.setVisible(false);
-                refreshQuiet();
+                refresh();
             }
         }
         return false;
     }
 
     private void refresh() {
-        mUserInfoViewController.setLoading(true);
-        refreshQuiet();
-    }
-
-    private void refreshQuiet() {
         mLoginManager.getCurrentUserInfo(mUserInfoViewController);
         mTimetableManager.getLecturesToday(mTimetableViewController);
+    }
+
+    public void seeAllCourses(View view) {
+        startActivity(new Intent(this, CoursesActivity.class));
     }
 
 }

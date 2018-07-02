@@ -7,6 +7,7 @@ import com.google.firebase.database.GenericTypeIndicator;
 
 import org.activeacademy.portal.db.RemoteDatabase;
 import org.activeacademy.portal.models.Course;
+import org.activeacademy.portal.models.CourseEntry;
 import org.activeacademy.portal.models.Grade;
 import org.activeacademy.portal.models.Lecture;
 import org.activeacademy.portal.models.TimetableEntry;
@@ -98,8 +99,28 @@ public class TimetableManager {
         });
     }
 
-    public void getLecturesAll(final ResponseHandler<List<Grade>> responseHandler) {
+    public void getLecturesAll(final ResponseHandler<List<CourseEntry>> responseHandler) {
+        getAsync(new ResponseHandler<List<Grade>>() {
+            @Override
+            public void onReceiveSuccess(@NonNull List<Grade> grades) {
+                final ArrayList<CourseEntry> courseEntries = new ArrayList<>();
+                for (Grade grade : grades) {
+                    if (grade.getCourses() != null) {
+                        for (Course course : grade.getCourses()) {
+                            CourseEntry courseEntry = new CourseEntry(grade, course);
+                            courseEntries.add(courseEntry);
+                        }
+                    }
+                }
 
+                responseHandler.onReceiveSuccess(courseEntries);
+            }
+
+            @Override
+            public void onReceiveError(@NonNull Exception ex) {
+                responseHandler.onReceiveError(ex);
+            }
+        });
     }
 
 }

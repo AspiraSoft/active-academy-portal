@@ -21,7 +21,7 @@
     <string name="placeholder_password">******</string>
     <string name="label_change_password">(Reset)</string>
 
-    <string name="label_timetable_details">See Full Schedule &gt;</string>
+    <string name="label_timetable_details">See All Courses &gt;</string>
     <string name="placeholder_today">Mon, 2 Jul 2018</string>
 
     <string name="error_internet">Check your internet connection</string>
@@ -29,5 +29,7 @@
 
     <string name="heading_schedule">My Schedule</string>
     <string name="heading_dashboard">Dashboard</string>
+    <string name="label_no_courses">No courses found</string>
+    <string name="heading_courses">All Courses</string>
 
 </resources>

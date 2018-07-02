@@ -13,23 +13,20 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
-
-        <activity android:name="org.activeacademy.portal.SplashScreen">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="org.activeacademy.portal.LoginActivity"
+            android:name=".LoginActivity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="org.activeacademy.portal.DashboardActivity"
+            android:name=".DashboardActivity"
             android:screenOrientation="portrait" />
-
+        <activity android:name=".CoursesActivity"></activity>
     </application>
 
 </manifest>
