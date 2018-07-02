@@ -45,7 +45,7 @@
             android:layout_alignParentBottom="true"
             android:background="@drawable/heading_primary"
             android:gravity="center"
-            android:text="Dashboard"
+            android:text="@string/heading_dashboard"
             android:textAllCaps="true"
             android:textColor="#000"
             android:textStyle="bold" />
@@ -77,17 +77,26 @@
                     android:id="@+id/dashboard_row1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
 
                     <TextView
                         android:id="@+id/name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
                         android:text="@string/placeholder_name"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/position"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/placeholder_position"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -96,6 +105,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:baselineAligned="false"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/placeholder_email"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/salary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/placeholder_salary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/dashboard_row3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="top"
                     android:orientation="horizontal"
                     android:weightSum="2">
 
@@ -106,13 +144,6 @@
                         android:orientation="vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp">
-
-                        <TextView
-                            android:id="@+id/email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/placeholder_email"
-                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/phone"
@@ -158,27 +189,11 @@
                         android:paddingRight="10dp">
 
                         <TextView
-                            android:id="@+id/position"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:text="@string/placeholder_position"
-                            android:textSize="14sp" />
-
-                        <TextView
                             android:id="@+id/join_date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
                             android:text="@string/placeholder_join_date"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/salary"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:text="@string/placeholder_salary"
                             android:textSize="12sp" />
 
                         <TextView
@@ -197,6 +212,14 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/dashboard_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/error_internet"
+                android:visibility="gone" />
 
             <ProgressBar
                 android:id="@+id/dashboard_loading"
@@ -220,16 +243,58 @@
                 android:layout_height="30dp"
                 android:background="@drawable/heading"
                 android:gravity="center"
-                android:text="My Schedule"
+                android:text="@string/heading_schedule"
                 android:textAllCaps="true"
                 android:textColor="#000"
                 android:textStyle="bold" />
 
-            <ListView
-                android:id="@+id/schedule"
+            <TextView
+                android:id="@+id/today"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/semiBlack"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="@string/placeholder_today"
+                android:textAllCaps="true"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
-                android:background="@color/semiBlack" />
+                android:background="@color/semiBlack"
+                android:padding="5dp">
+
+                <ListView
+                    android:id="@+id/schedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="20dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/schedule_loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/label_no_classes" />
+
+                <TextView
+                    android:id="@+id/timetable_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="end"
+                    android:text="@string/label_timetable_details"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
+
+            </RelativeLayout>
 
         </LinearLayout>
 
