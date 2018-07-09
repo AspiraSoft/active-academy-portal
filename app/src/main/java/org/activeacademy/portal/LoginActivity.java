@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseUser;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity implements
     private EditText mPasswordField;
     private AppCompatCheckBox mRememberField;
     private CustomButton mLoginButton;
+    private TextView mResetButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,9 @@ public class LoginActivity extends AppCompatActivity implements
         mEmailField = findViewById(R.id.emailField);
         mPasswordField = findViewById(R.id.passwordField);
         mRememberField = findViewById(R.id.rememberUser);
+
+        mResetButton = findViewById(R.id.resetButton);
+        mLoginButton = findViewById(R.id.loginButton);
 
         // Restore any saved credentials
         String[] savedCredentials = LocalDatabase.getInstance().getSavedCredentials();
@@ -46,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements
         }
 
         // Set event listeners
-        mLoginButton = findViewById(R.id.loginButton);
+        mResetButton.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
 
         mLoginManager = LoginManager.getInstance();
@@ -88,6 +93,11 @@ public class LoginActivity extends AppCompatActivity implements
                 // Start asynchronous sign in operation
                 Toast.makeText(LoginActivity.this, "Signing in ...", Toast.LENGTH_SHORT).show();
                 mLoginManager.signInWithCredentials(email, password, this);
+                break;
+
+            case R.id.resetButton:
+                startActivity(new Intent(this, PasswordActivity.class));
+                overridePendingTransition(0, 0);
                 break;
         }
     }

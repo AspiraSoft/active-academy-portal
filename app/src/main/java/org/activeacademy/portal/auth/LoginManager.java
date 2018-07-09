@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import org.activeacademy.portal.db.RemoteDatabase;
-import org.activeacademy.portal.errors.AuthenticationException;
 import org.activeacademy.portal.models.Instructor;
 import org.activeacademy.portal.utils.ResponseHandler;
 
@@ -81,13 +80,24 @@ public class LoginManager {
     }
 
     public void getCurrentUserInfo(ResponseHandler<Instructor> responseHandler) {
-        if (!isUserSignedIn()) {
-            responseHandler.onReceiveError(new AuthenticationException());
+        if (isUserSignedIn()) {
+            RemoteDatabase mRemoteDb = RemoteDatabase.getInstance();
+            mRemoteDb.getAsync("users/" + currentUser.getUid(),
+                    Instructor.class, responseHandler);
+        }
+    }
+
+    public boolean resetPassword(OnCompleteListener<Void> listener) {
+        if (isUserSignedIn()) {
+            resetPassword(currentUser.getEmail(), listener);
+            return true;
         }
 
-        RemoteDatabase mRemoteDb = RemoteDatabase.getInstance();
-        mRemoteDb.getAsync("users/" + currentUser.getUid(),
-                Instructor.class, responseHandler);
+        return false;
+    }
+
+    public void resetPassword(String email, OnCompleteListener<Void> listener) {
+        mAuth.sendPasswordResetEmail(email).addOnCompleteListener(listener);
     }
 
 }

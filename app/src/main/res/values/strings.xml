@@ -31,5 +31,6 @@
     <string name="heading_dashboard">Dashboard</string>
     <string name="label_no_courses">No courses found</string>
     <string name="heading_courses">All Courses</string>
+    <string name="labelResetPassword">Send Link</string>
 
 </resources>

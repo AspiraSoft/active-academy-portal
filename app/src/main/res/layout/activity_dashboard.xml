@@ -171,6 +171,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginStart="5dp"
+                                android:onClick="resetPassword"
                                 android:text="@string/label_change_password"
                                 android:textColor="@color/colorAccent"
                                 android:textSize="12sp"
